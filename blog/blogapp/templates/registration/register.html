@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+        <div class="container">
+            <div class="jumbotron">
+                {% if registered %}
+                    <h1>Thank You For registration</h1>
+                {% else %}
+                    <h1>Register Here</h1>
+                    <form enctype="multipart/form-data" method="post">
+                        {% csrf_token%}
+                       {{ form.as_p }}
+                        <input type="submit" value="Register">
+                    </form>
+                {% endif %}
+            </div>
+        </div>
+{% endblock %}
+
